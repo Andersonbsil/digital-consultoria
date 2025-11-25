@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techyou Digital - Consultoria em Transformação Digital</title>
+<style>
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #2A5B8C;
+    --secondary: #FF6B35;
+    --accent: #34C759;
+    --light: #F5F7FA;
+    --dark: #1E2A38;
+    --gray: #6C757D;
+}
+
+body {
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 15px auto 0;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--gray);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1e4569;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: rgba(42, 91, 140, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #1e4569 100%);
+    color: white;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 30px;
+}
+
+.hero h1 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-illustration {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.hero-illustration img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Problemas Section */
+.problems {
+    background: var(--light);
+}
+
+.problems-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+}
+
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.problem-card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+}
+
+.problem-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Serviços Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    height: 120px;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    color: var(--primary);
+}
+
+/* Benefícios Section */
+.benefits {
+    background: var(--light);
+}
+
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.benefit-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    background: var(--light);
+    color: var(--primary);
+}
+
+.testimonial {
+    background: var(--primary);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.testimonial p {
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-weight: 600;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.stat-item {
+    margin: 15px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* Formulário Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.privacy-note {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+<main role="main">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforme seu negócio com soluções digitais inteligentes</h1>
+                <p>Consultoria especializada em desenvolvimento web, aplicativos mobile e estratégias digitais para alavancar seus resultados.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Solicite uma Consultoria Gratuita</a>
+                    <a href="#services" class="btn btn-secondary">Conheça nossos serviços</a>
+                </div>
+            </div>
+            <div class="hero-illustration" role="img" aria-label="Ilustração de tela de computador e celular simbolizando transformação digital e desenvolvimento de software.">
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="50" width="300" height="200" rx="10" fill="#FF6B35" opacity="0.8"/>
+                    <rect x="80" y="80" width="240" height="140" rx="5" fill="white"/>
+                    <circle cx="120" cy="120" r="15" fill="#2A5B8C"/>
+                    <rect x="150" y="110" width="150" height="10" rx="5" fill="#E0E0E0"/>
+                    <rect x="150" y="130" width="120" height="10" rx="5" fill="#E0E0E0"/>
+                    <rect x="150" y="150" width="100" height="10" rx="5" fill="#E0E0E0"/>
+                    <circle cx="120" cy="170" r="15" fill="#34C759"/>
+                    <rect x="150" y="160" width="150" height="10" rx="5" fill="#E0E0E0"/>
+                    <rect x="150" y="180" width="130" height="10" rx="5" fill="#E0E0E0"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2>Problemas que resolvemos</h2>
+            <p class="problems-intro">Sabemos que essas dores fazem parte da sua realidade — e temos as soluções certas.</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon" style="background-color: #FF6B35;">
+                        <span aria-hidden="true">📱</span>
+                    </div>
+                    <h3>Falta de Presença Mobile</h3>
+                    <p>Seu negócio não está acessível no dispositivo que seus clientes mais usam.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="background-color: #2A5B8C;">
+                        <span aria-hidden="true">🌐</span>
+                    </div>
+                    <h3>Site Desatualizado</h3>
+                    <p>Seu site não funciona bem em celulares e não aparece nas buscas.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="background-color: #34C759;">
+                        <span aria-hidden="true">📊</span>
+                    </div>
+                    <h3>Processos Ineficientes</h3>
+                    <p>Operações manuais que consomem tempo e aumentam custos.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="background-color: #FFC107;">
+                        <span aria-hidden="true">🚀</span>
+                    </div>
+                    <h3>Falta de Estratégia Digital</h3>
+                    <p>Não há um plano claro para o crescimento online do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">💻</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Desenvolvimento Web</h3>
+                        <p>Sites rápidos, responsivos e otimizados para SEO. Criamos experiências digitais que convertem visitantes em clientes.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">📱</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Apps Mobile</h3>
+                        <p>Aplicativos sob medida para Android e iOS. Conecte-se com seus clientes onde eles estiverem.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">🛠️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Consultoria em TI</h3>
+                        <p>Análise e otimização de processos. Implementamos as melhores soluções tecnológicas para seu negócio.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">📈</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Marketing Digital</h3>
+                        <p>Estratégias completas para aumentar sua visibilidade online e gerar leads qualificados.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">☁️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cloud Solutions</h3>
+                        <p>Migração e gestão de infraestrutura em nuvem. Escalabilidade, segurança e redução de custos.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span aria-hidden="true">🔒</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Segurança Digital</h3>
+                        <p>Proteja seus dados e sistemas contra ameaças cibernéticas com nossas soluções de segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Benefícios para você</h2>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <span aria-hidden="true">💰</span>
+                        </div>
+                        <h3>Redução de Custos</h3>
+                    </div>
+                    <p>Automatizamos processos manuais para reduzir despesas operacionais e aumentar a eficiência.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <span aria-hidden="true">📈</span>
+                        </div>
+                        <h3>Aumento de Vendas</h3>
+                    </div>
+                    <p>Experiências digitais otimizadas que convertem mais visitantes em clientes.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <span aria-hidden="true">⏱️</span>
+                        </div>
+                        <h3>Economia de Tempo</h3>
+                    </div>
+                    <p>Soluções que automatizam tarefas repetitivas, liberando sua equipe para atividades estratégicas.</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"A Techyou Digital transformou nossa presença online. Em 3 meses, nosso faturamento digital aumentou 40%."</p>
+                <p class="testimonial-author">- Carla Mendes, Diretora de Marketing na TechSolutions</p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">+200</span>
+                    <span class="stat-label">Projetos Entregues</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Clientes Satisfeitos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+50</span>
+                    <span class="stat-label">Parceiros de Negócio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone (opcional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service" name="service">
+                            <option value="" disabled selected>Selecione um serviço</option>
+                            <option value="web">Desenvolvimento Web</option>
+                            <option value="mobile">Apps Mobile</option>
+                            <option value="consulting">Consultoria em TI</option>
+                            <option value="marketing">Marketing Digital</option>
+                            <option value="cloud">Cloud Solutions</option>
+                            <option value="security">Segurança Digital</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" placeholder="Conte-nos sobre seu projeto..."></textarea>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Solicitar Consultoria Gratuita</button>
+                        <p class="privacy-note">Prometemos não enviar spam. Sua informação está segura conosco.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>Techyou Digital &copy; 2023 - Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<script>
+    // 1. NOVO CÓDIGO PARA CONECTAR AO BACKEND
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+
+        const response = await fetch("http://localhost:3000/contato", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        this.reset();
+    });
+
+    // 2. Navegação suave para âncoras (CÓDIGO QUE VOCÊ JÁ TINHA)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                // Ajuste de offset para compensar um possível cabeçalho fixo (se existir)
+                window.scrollTo({ 
+                    top: targetElement.offsetTop - 80, 
+                    behavior: 'smooth' 
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
